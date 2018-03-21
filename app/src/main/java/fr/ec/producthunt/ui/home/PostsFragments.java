@@ -76,7 +76,7 @@ public class PostsFragments extends Fragment {
     });
     viewAnimator = rootView.findViewById(R.id.main_view_animator);
     listView.setAdapter(postAdapter);
-
+    refreshPosts();
     return rootView;
   }
 
