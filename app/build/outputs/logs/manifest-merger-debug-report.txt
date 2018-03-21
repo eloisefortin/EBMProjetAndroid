@@ -1,0 +1,134 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:2:1-32:12
+MERGED from [com.android.support:design:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/91ca636569a0f8404a2bb61bc4fbd080/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/ffffa51c5c4781b7f020cbbbf04f2e21/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/hazegard/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/5a6c74b17478045bb5f744b9e1b12bf0/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-v4:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/b8ccc159cfcdfb3dac8c83820d6aa2e1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/90b96533fbadb0f10d2fd89f64d0a6bd/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/91b70cd6d9453e069e3ee359b3cf1dd2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/5cfdc2a5c130e28e47d2053d80b90c75/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/a4d98d9d2acb70bfa6b3593506221798/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/7e78ec9db315d280e1762d661787b3d2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/c9cf42efd7799a96be52619625faec44/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/d1b28d2c82b54dae42fbad362568b494/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/1a12303ef0f0432761405b5938f897b2/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/56d1057d700566aed5999ff010b9cb0a/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/7dcfae47f4d862958e7cb1503d24ee16/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/8c020f61927ce51c5a15e4dbf3a61bff/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/791d3f3beafa0478cd91c4bec2932da7/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/1460e0fbb3a7fd44c87dff5390795604/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:2:1-32:12
+INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:2:1-32:12
+	package
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:3:5-32
+		INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+		INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:2:1-32:12
+		INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:2:1-32:12
+		INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:5:3-64
+	android:name
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:5:20-62
+application
+ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:7:3-30:17
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/hazegard/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/5a6c74b17478045bb5f744b9e1b12bf0/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/hazegard/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/5a6c74b17478045bb5f744b9e1b12bf0/AndroidManifest.xml:9:5-20
+	android:supportsRtl
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:12:7-33
+	android:label
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:10:7-39
+	android:roundIcon
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:11:7-52
+	android:icon
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:9:7-41
+	android:allowBackup
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:8:7-33
+	android:theme
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:13:7-38
+activity#fr.ec.producthunt.ui.home.MainActivity
+ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:14:5-22:16
+	android:label
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:16:9-41
+	android:name
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:15:9-45
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:17:7-21:23
+action#android.intent.action.MAIN
+ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:18:9-60
+	android:name
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:18:17-58
+category#android.intent.category.LAUNCHER
+ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:20:9-68
+	android:name
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:20:19-66
+activity#fr.ec.producthunt.ui.detail.DetailActivity
+ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:23:5-24:16
+	android:name
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:23:15-55
+service#fr.ec.producthunt.data.SyncService
+ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:26:5-29:15
+	android:exported
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:28:9-33
+	android:name
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml:27:9-41
+uses-sdk
+INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/91ca636569a0f8404a2bb61bc4fbd080/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/design-27.1.0.aar/91ca636569a0f8404a2bb61bc4fbd080/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/ffffa51c5c4781b7f020cbbbf04f2e21/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.0.aar/ffffa51c5c4781b7f020cbbbf04f2e21/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/hazegard/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/5a6c74b17478045bb5f744b9e1b12bf0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] /home/hazegard/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.2.aar/5a6c74b17478045bb5f744b9e1b12bf0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-v4:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/b8ccc159cfcdfb3dac8c83820d6aa2e1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-v4-27.1.0.aar/b8ccc159cfcdfb3dac8c83820d6aa2e1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/90b96533fbadb0f10d2fd89f64d0a6bd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.0.aar/90b96533fbadb0f10d2fd89f64d0a6bd/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/91b70cd6d9453e069e3ee359b3cf1dd2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.0.aar/91b70cd6d9453e069e3ee359b3cf1dd2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/5cfdc2a5c130e28e47d2053d80b90c75/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.1.0.aar/5cfdc2a5c130e28e47d2053d80b90c75/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/a4d98d9d2acb70bfa6b3593506221798/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.0.aar/a4d98d9d2acb70bfa6b3593506221798/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/7e78ec9db315d280e1762d661787b3d2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.0.aar/7e78ec9db315d280e1762d661787b3d2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/c9cf42efd7799a96be52619625faec44/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.0.aar/c9cf42efd7799a96be52619625faec44/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/d1b28d2c82b54dae42fbad362568b494/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/transition-27.1.0.aar/d1b28d2c82b54dae42fbad362568b494/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/1a12303ef0f0432761405b5938f897b2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.1.0.aar/1a12303ef0f0432761405b5938f897b2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/56d1057d700566aed5999ff010b9cb0a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.0.aar/56d1057d700566aed5999ff010b9cb0a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/7dcfae47f4d862958e7cb1503d24ee16/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/7dcfae47f4d862958e7cb1503d24ee16/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/8c020f61927ce51c5a15e4dbf3a61bff/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/8c020f61927ce51c5a15e4dbf3a61bff/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/791d3f3beafa0478cd91c4bec2932da7/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/791d3f3beafa0478cd91c4bec2932da7/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/1460e0fbb3a7fd44c87dff5390795604/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/hazegard/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/1460e0fbb3a7fd44c87dff5390795604/AndroidManifest.xml:20:5-44
+INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+		INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+		ADDED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
+		INJECTED from /home/hazegard/workspace/Android/Producthunt-Demo/app/src/main/AndroidManifest.xml
