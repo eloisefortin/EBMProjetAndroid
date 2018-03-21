@@ -1,4 +1,0 @@
-#Wed Mar 21 11:53:02 CET 2018
-base.0=/home/hazegard/workspace/Android/Producthunt-Demo/app/build/intermediates/transforms/dexMerger/debug/5
-path.0=classes.dex
-renamed.0=classes.dex
