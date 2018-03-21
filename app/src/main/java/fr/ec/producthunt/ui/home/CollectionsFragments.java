@@ -49,6 +49,7 @@ public class CollectionsFragments extends Fragment {
   @Override
   public void onAttach(Context context) {
     super.onAttach(context);
+    //TODO Gérer le click sur une collection
 //    callback = (Callback) getActivity();
   }
 
@@ -70,14 +71,15 @@ public class CollectionsFragments extends Fragment {
       @Override
       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        Post post = (Post) parent.getAdapter().getItem(position);
-        callback.onClickPost(post);
+        //TODO Gérer le click sur une collection
+//        Post post = (Post) parent.getAdapter().getItem(position);
+//        callback.onClickPost(post);
 
       }
     });
     viewAnimator = rootView.findViewById(R.id.main_view_animator);
     listView.setAdapter(collectionAdapter);
-
+    refreshCollections();
     return rootView;
   }
 
@@ -169,6 +171,6 @@ public class CollectionsFragments extends Fragment {
 
   public interface Callback {
     void onClickPost(Post post);
-    //TODO
+    //TODO Gérer le click sur une collection
   }
 }
