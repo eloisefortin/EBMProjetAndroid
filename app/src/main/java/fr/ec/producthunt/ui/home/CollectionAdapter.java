@@ -16,7 +16,7 @@ import fr.ec.producthunt.R;
 import fr.ec.producthunt.data.model.Collection;
 
 /**
- * Created by hazegard on 21/03/18.
+ * Created by Eloïse on 21/03/18.
  */
 
 public class CollectionAdapter extends BaseAdapter {
