@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -26,6 +28,8 @@ import fr.ec.producthunt.data.DataProvider;
 import fr.ec.producthunt.data.SyncService;
 import fr.ec.producthunt.data.model.Collection;
 import fr.ec.producthunt.data.model.Post;
+
+import static android.content.ContentValues.TAG;
 
 public class CollectionsFragments extends Fragment {
 
@@ -80,6 +84,25 @@ public class CollectionsFragments extends Fragment {
     viewAnimator = rootView.findViewById(R.id.main_view_animator);
     listView.setAdapter(collectionAdapter);
     refreshCollections();
+
+    //swippe
+    final SwipeRefreshLayout swippeToRefresh = rootView.findViewById(R.id.swiperefresh);
+    swippeToRefresh.setOnRefreshListener(
+            new SwipeRefreshLayout.OnRefreshListener() {
+              @Override
+              public void onRefresh() {
+                Log.i(TAG, "onRefresh called from SwipeRefreshLayout");
+
+                // This method performs the actual data-refresh operation.
+                // The method calls setRefreshing(false) when it's finished.
+
+                refreshCollections();
+                swippeToRefresh.setRefreshing(false);
+
+              }
+            }
+    );
+
     return rootView;
   }
 
