@@ -23,7 +23,6 @@ import fr.ec.producthunt.ui.detail.DetailActivity;
 import fr.ec.producthunt.ui.detail.DetailPostFragment;
 
 public class MainActivity extends AppCompatActivity implements PostsFragments.Callback, CollectionsFragments.Callback, PostsFragmentsFromCollections.Callback {
-  public static final String POST_FROM_COLLECTION_KEY = "POST_FROM_COLLECTION_KEY";
   private boolean towPane;
   private DrawerLayout mDrawerLayout;
 
@@ -37,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements PostsFragments.Ca
 
     NavigationView navigationView = findViewById(R.id.nav_view);
     mDrawerLayout = findViewById(R.id.drawerLayout);
+
+    showPostsOnCreate();
     navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
       @Override
       public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -68,6 +69,13 @@ public class MainActivity extends AppCompatActivity implements PostsFragments.Ca
     }
   }
 
+  private void showPostsOnCreate() {
+    Fragment fragment = null;
+    FragmentManager fm = getSupportFragmentManager();
+    fragment = new PostsFragments();
+    fm.beginTransaction().replace(R.id.content_frame, fragment).commit();
+  }
+
   @Override
   public void onClickPost(Post post) {
 
@@ -93,9 +101,4 @@ public class MainActivity extends AppCompatActivity implements PostsFragments.Ca
     fm.beginTransaction().replace(R.id.content_frame, PostsFragmentsFromCollections.newInstance(collectionString)).commit();
   }
 
-
-  @Override
-  public void onClickPostFromCollection(Post post) {
-
-  }
 }

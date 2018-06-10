@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.ViewAnimator;
 
 import java.util.List;
@@ -48,7 +49,6 @@ public class PostsFragmentsFromCollections extends Fragment {
     private ViewAnimator viewAnimator;
     private List<Post> listPost;
 
-    private PostsFragmentsFromCollections.SyncPostReceiver syncPostReceiver;
     private JsonPostParser jsonPostParser;
     private PostsFragmentsFromCollections.Callback callback;
 
@@ -87,13 +87,12 @@ public class PostsFragmentsFromCollections extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         //getListPosts
-        String listPostsString =  getArguments().getString(LIST_POSTS_STRING);
+        String listPostsString = getArguments().getString(LIST_POSTS_STRING);
         listPost = jsonPostParser.jsonToPostFromCollection(listPostsString);
 
 
         View rootView = inflater.inflate(R.layout.home_list_fragment, container, false);
 
-        syncPostReceiver = new PostsFragmentsFromCollections.SyncPostReceiver();
 
         postAdapter = new PostAdapter();
 
@@ -107,7 +106,7 @@ public class PostsFragmentsFromCollections extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Post post = (Post) parent.getAdapter().getItem(position);
-                callback.onClickPostFromCollection(post);
+                callback.onClickPost(post);
 
             }
         });
@@ -149,20 +148,13 @@ public class PostsFragmentsFromCollections extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(PostsFragments.SyncPostReceiver.ACTION_LOAD_POSTS);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            LocalBroadcastManager.getInstance(this.getContext())
-                    .registerReceiver(syncPostReceiver, intentFilter);
-        }
+
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            LocalBroadcastManager.getInstance(this.getContext()).unregisterReceiver(syncPostReceiver);
-        }
+
     }
 
     @Override
@@ -183,25 +175,9 @@ public class PostsFragmentsFromCollections extends Fragment {
         }
     }
 
-    public class SyncPostReceiver extends BroadcastReceiver {
-        public static final String ACTION_LOAD_POSTS = "fr.ec.producthunt.data.action.LOAD_POSTS";
-
-        public SyncPostReceiver() {
-        }
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent != null && intent.getAction().equals(ACTION_LOAD_POSTS)) {
-                loadPosts(listPost);
-            }
-        }
-    }
-
 
     private void refreshPosts() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            SyncService.startSyncPosts(getContext());
-        }
+        Toast.makeText(getContext(), "refreshPosts", Toast.LENGTH_LONG);
     }
 
     private void loadPosts(List<Post> posts) {
@@ -213,7 +189,7 @@ public class PostsFragmentsFromCollections extends Fragment {
     }
 
     public interface Callback {
-        void onClickPostFromCollection(Post post);
+        void onClickPost(Post post);
     }
 
 }
