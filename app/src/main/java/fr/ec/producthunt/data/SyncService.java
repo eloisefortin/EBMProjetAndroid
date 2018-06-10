@@ -7,6 +7,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import static android.content.ContentValues.TAG;
+import static fr.ec.producthunt.ui.comments.CommentsActivityFragment.SyncCommentsReceiver.ACTION_LOAD_COMMENTS;
 import static fr.ec.producthunt.ui.home.CollectionsFragments.SyncCollectionReceiver.ACTION_LOAD_COLLECTIONS;
 import static fr.ec.producthunt.ui.home.PostsFragments.SyncPostReceiver.ACTION_LOAD_POSTS;
 
@@ -20,6 +21,9 @@ public class SyncService extends IntentService {
 
   private static final String ACTION_FETCH_NEW_COLLECTIONS =
     "fr.ec.producthunt.data.action.FETCH_NEW_COLLECTIONS";
+
+  private static final String ACTION_FETCH_NEW_COMMENTS =
+          "fr.ec.producthunt.data.action.FETCH_NEW_COMMENTS";
 
   public SyncService() {
     super("SyncService");
@@ -48,6 +52,13 @@ public class SyncService extends IntentService {
     context.startService(intent);
   }
 
+  public static void startSyncComments(Context context, String postId, String commentId) {
+    Intent intent = new Intent(context, SyncService.class);
+    intent.setAction(ACTION_FETCH_NEW_COMMENTS);
+    intent.putExtra("postId", postId);
+    intent.putExtra("commentId",commentId);
+    context.startService(intent);
+  }
   @Override
   protected void onHandleIntent(Intent intent) {
     if (intent != null) {
@@ -57,6 +68,8 @@ public class SyncService extends IntentService {
         Log.d(TAG, "handleActionFetchNewPosts is Ok");
       } else if (ACTION_FETCH_NEW_COLLECTIONS.equals(action)){
         handleActionFetchNewCollections();
+      } else if (ACTION_FETCH_NEW_COMMENTS.equals(action)){
+        handleActionFetchNewComments(intent.getExtras().getString("postId"), intent.getExtras().getString("commentId"));
       }
     }
   }
@@ -81,5 +94,12 @@ public class SyncService extends IntentService {
     LocalBroadcastManager.getInstance(this).sendBroadcast(intentToSend);
   }
 
+  private void handleActionFetchNewComments(String postId, String lastCommentId) {
+    //getFromWeb
+    DataProvider.getInstance(this.getApplication()).syncComment(postId,lastCommentId);
+    Intent intentToSend = new Intent();
+    intentToSend.setAction(ACTION_LOAD_COMMENTS);
+    LocalBroadcastManager.getInstance(this).sendBroadcast(intentToSend);
+  }
 
 }
