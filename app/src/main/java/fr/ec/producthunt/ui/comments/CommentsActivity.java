@@ -29,7 +29,7 @@ public class CommentsActivity extends AppCompatActivity {
 
         FragmentManager fm = getSupportFragmentManager();
         Log.d(TAG,"postId :"+postId);
-        fm.beginTransaction().replace(R.id.content_frame, CommentsActivityFragment.newInstance(postId)).commit();
+        fm.beginTransaction().replace(R.id.content_comment_frame, CommentsActivityFragment.newInstance(postId)).commit();
     }
 
 

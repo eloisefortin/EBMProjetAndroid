@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,7 +74,24 @@ public class CommentsActivityFragment extends Fragment {
         listView.setAdapter(commentAdapter);
 
         refreshComments(postId);
+        //swippe
+        final SwipeRefreshLayout swippeToRefresh = rootView.findViewById(R.id.swiperefresh);
+        swippeToRefresh.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        Log.i(TAG, "onRefresh called from SwipeRefreshLayout");
 
+                        // This method performs the actual data-refresh operation.
+                        // The method calls setRefreshing(false) when it's finished.
+
+                        refreshComments(postId);
+                        loadComments(postId);
+                        swippeToRefresh.setRefreshing(false);
+
+                    }
+                }
+        );
         return rootView;
     }
     @Override
@@ -87,7 +105,7 @@ public class CommentsActivityFragment extends Fragment {
     public void onStart() {
         super.onStart();
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(PostsFragments.SyncPostReceiver.ACTION_LOAD_POSTS);
+        intentFilter.addAction(SyncCommentsReceiver.ACTION_LOAD_COMMENTS);
         LocalBroadcastManager.getInstance(this.getContext())
                 .registerReceiver(syncCommentsReceiver, intentFilter);
     }
@@ -150,7 +168,8 @@ public class CommentsActivityFragment extends Fragment {
             } else {
                 Log.d(TAG,"FetchCommentsAsyncTask : comments Empty" );
             }
-            viewAnimator.setDisplayedChild(viewAnimator.indexOfChild(getView().findViewById(R.id.list_comments)));
+            //viewAnimator.setDisplayedChild(viewAnimator.indexOfChild(getView().findViewById(R.id.list_comments)));
+            //viewAnimator.setDisplayedChild(LIST_CHILD);
         }
     }
 }

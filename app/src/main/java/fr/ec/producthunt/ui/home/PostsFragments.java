@@ -117,6 +117,7 @@ public class PostsFragments extends Fragment {
                         // The method calls setRefreshing(false) when it's finished.
 
                         refreshPosts();
+                        loadPosts();
                         swippeToRefresh.setRefreshing(false);
 
                     }

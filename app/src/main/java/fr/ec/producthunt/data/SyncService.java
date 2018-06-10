@@ -97,6 +97,7 @@ public class SyncService extends IntentService {
   private void handleActionFetchNewComments(String postId, String lastCommentId) {
     //getFromWeb
     DataProvider.getInstance(this.getApplication()).syncComment(postId,lastCommentId);
+
     Intent intentToSend = new Intent();
     intentToSend.setAction(ACTION_LOAD_COMMENTS);
     LocalBroadcastManager.getInstance(this).sendBroadcast(intentToSend);

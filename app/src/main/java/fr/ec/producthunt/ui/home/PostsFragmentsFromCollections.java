@@ -32,6 +32,7 @@ import fr.ec.producthunt.data.DataProvider;
 import fr.ec.producthunt.data.JsonPostParser;
 import fr.ec.producthunt.data.SyncService;
 import fr.ec.producthunt.data.model.Post;
+import fr.ec.producthunt.ui.comments.CommentsActivity;
 
 import static android.content.ContentValues.TAG;
 
@@ -110,6 +111,24 @@ public class PostsFragmentsFromCollections extends Fragment {
 
             }
         });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long l) {
+                Log.d(TAG, "longclick");
+
+                Intent intent = new Intent(getActivity(), CommentsActivity.class);
+
+                Post post = (Post) parent.getAdapter().getItem(position);
+
+                intent.putExtra(PostsFragments.POST_ID, String.valueOf(post.getId()));
+                intent.putExtra(PostsFragments.POST_TITLE, post.getTitle());
+                startActivity(intent);
+                return true;
+            }
+        });
+
+
         viewAnimator = rootView.findViewById(R.id.main_view_animator);
         listView.setAdapter(postAdapter);
         refreshPosts();
