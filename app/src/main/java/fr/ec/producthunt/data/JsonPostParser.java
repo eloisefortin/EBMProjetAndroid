@@ -17,8 +17,8 @@ public class JsonPostParser {
 
     try {
 
-      JSONObject postsRespnse = new JSONObject(json);
-      JSONArray postsJson = postsRespnse.getJSONArray("posts");
+      JSONObject postsResponse = new JSONObject(json);
+      JSONArray postsJson = postsResponse.getJSONArray("posts");
 
       int size = postsJson.length();
 
@@ -36,7 +36,28 @@ public class JsonPostParser {
       return Collections.emptyList();
     }
   }
+  public List<Post> jsonToPostFromCollection( String json) {
+  try {
+    JSONObject collectionResponse = new JSONObject(json);
+    JSONObject postsResponse = collectionResponse.getJSONObject("collection");
+    JSONArray postsJson = postsResponse.getJSONArray("posts");
 
+    int size = postsJson.length();
+
+    ArrayList<Post> posts = new ArrayList(size);
+
+    for (int i = 0; i < postsJson.length(); i++) {
+      JSONObject postJson = (JSONObject) postsJson.get(i);
+
+      posts.add(jsonToPost(postJson));
+    }
+
+    return posts;
+  } catch (JSONException e) {
+    e.printStackTrace();
+    return Collections.emptyList();
+  }
+  }
   private  Post jsonToPost(JSONObject postJson) throws JSONException {
     Post post = new Post();
     //"thumbnail": {

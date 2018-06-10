@@ -80,4 +80,6 @@ public class SyncService extends IntentService {
     intentToSend.setAction(ACTION_LOAD_COLLECTIONS);
     LocalBroadcastManager.getInstance(this).sendBroadcast(intentToSend);
   }
+
+
 }

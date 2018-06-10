@@ -1,5 +1,6 @@
 package fr.ec.producthunt.ui.home;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -7,7 +8,10 @@ import android.content.IntentFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
@@ -19,12 +23,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.ViewAnimator;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.ec.producthunt.R;
 import fr.ec.producthunt.data.DataProvider;
+import fr.ec.producthunt.data.JsonPostParser;
 import fr.ec.producthunt.data.SyncService;
 import fr.ec.producthunt.data.model.Collection;
 import fr.ec.producthunt.data.model.Post;
@@ -44,6 +58,7 @@ public class CollectionsFragments extends Fragment {
 
   private Callback callback;
 
+
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -54,7 +69,7 @@ public class CollectionsFragments extends Fragment {
   public void onAttach(Context context) {
     super.onAttach(context);
     //TODO Gérer le click sur une collection
-//    callback = (Callback) getActivity();
+    callback = (Callback) getActivity();
   }
 
   @Nullable
@@ -62,7 +77,7 @@ public class CollectionsFragments extends Fragment {
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                            @Nullable Bundle savedInstanceState) {
 
-    View rootView = inflater.inflate(R.layout.home_shit_list_fragment, container, false);
+    View rootView = inflater.inflate(R.layout.home_list_fragment, container, false);
 
     syncCollectionReceiver = new SyncCollectionReceiver();
 
@@ -71,13 +86,15 @@ public class CollectionsFragments extends Fragment {
     ListView listView = rootView.findViewById(R.id.list_item);
     listView.setEmptyView(rootView.findViewById(R.id.empty_element));
 
+
+    //click on collection
     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        //TODO Gérer le click sur une collection
-//        Post post = (Post) parent.getAdapter().getItem(position);
-//        callback.onClickPost(post);
+         Collection collection = (Collection) parent.getAdapter().getItem(position);
+         loadCollectionsPosts(collection.getId());
+
 
       }
     });
@@ -168,7 +185,10 @@ public class CollectionsFragments extends Fragment {
     FetchCollectionsAsyncTask fetchCollectionAsyncTask = new FetchCollectionsAsyncTask();
     fetchCollectionAsyncTask.execute();
   }
-
+  private void loadCollectionsPosts(Long collectionId) {
+    FetchCollectionsPostsAsyncTask fetchCollectionsPostsAsyncTask = new FetchCollectionsPostsAsyncTask();
+    fetchCollectionsPostsAsyncTask.execute(collectionId);
+  }
   private class FetchCollectionsAsyncTask extends AsyncTask<Void, Void, List<Collection>> {
 
     @Override
@@ -192,8 +212,59 @@ public class CollectionsFragments extends Fragment {
     }
   }
 
+  private class FetchCollectionsPostsAsyncTask extends AsyncTask<Long, Void, String >{
+
+    private JsonPostParser jsonPostParser;
+    private static final String COLLECTION_DETAIL_API_ENPOINT = "https://api.producthunt.com/v1/collections/";
+    private static final String QUERY_ACCESS_TOKEN = "?access_token=46a03e1c32ea881c8afb39e59aa17c936ff4205a8ed418f525294b2b45b56abb";
+    public FetchCollectionsPostsAsyncTask() {
+      this.jsonPostParser = new JsonPostParser();
+    }
+
+
+    @Override
+    protected void onPreExecute() {
+      super.onPreExecute();
+      viewAnimator.setDisplayedChild(PROGRESS_CHILD);
+    }
+
+    @Override
+    protected String doInBackground(Long... ids) {
+
+      String response = "";
+      List<Post> listPosts=  new ArrayList<>();
+      for (Long id : ids) {
+        DefaultHttpClient client = new DefaultHttpClient();
+
+        HttpGet httpGet = new HttpGet(COLLECTION_DETAIL_API_ENPOINT+id+QUERY_ACCESS_TOKEN);
+        Log.d(TAG, "doInBackground: url : "+COLLECTION_DETAIL_API_ENPOINT+id+QUERY_ACCESS_TOKEN);
+        try {
+          HttpResponse execute = client.execute(httpGet);
+          InputStream content = execute.getEntity().getContent();
+
+          BufferedReader buffer = new BufferedReader(new InputStreamReader(content));
+          String s = "";
+          while ((s = buffer.readLine()) != null) {
+            response += s;
+          }
+          Log.d(TAG, "doInBackground: "+ response);
+
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+      return response;
+    }
+
+    @Override
+    protected void onPostExecute(String posts) {
+
+      callback.onClickCollection(posts);
+
+    }
+  }
+
   public interface Callback {
-    void onClickPost(Post post);
-    //TODO Gérer le click sur une collection
+    void onClickCollection(String collectionString);
   }
 }

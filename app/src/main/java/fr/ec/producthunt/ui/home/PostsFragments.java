@@ -1,11 +1,9 @@
 package fr.ec.producthunt.ui.home;
 
 import android.content.BroadcastReceiver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,12 +22,10 @@ import android.widget.ListView;
 import android.widget.ViewAnimator;
 
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import fr.ec.producthunt.R;
 import fr.ec.producthunt.data.DataProvider;
 import fr.ec.producthunt.data.SyncService;
-import fr.ec.producthunt.data.database.DataBaseContract;
 import fr.ec.producthunt.data.model.Post;
 
 import static android.content.ContentValues.TAG;
@@ -66,7 +62,7 @@ public class PostsFragments extends Fragment {
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                            @Nullable Bundle savedInstanceState) {
 
-    View rootView = inflater.inflate(R.layout.home_shit_list_fragment, container, false);
+    View rootView = inflater.inflate(R.layout.home_list_fragment, container, false);
 
     syncPostReceiver = new SyncPostReceiver();
 
@@ -75,6 +71,8 @@ public class PostsFragments extends Fragment {
     ListView listView = rootView.findViewById(R.id.list_item);
     listView.setEmptyView(rootView.findViewById(R.id.empty_element));
 
+
+    //click On Post
     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
       @Override
       public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -109,6 +107,8 @@ public class PostsFragments extends Fragment {
 
     return rootView;
   }
+
+
 
   @Override
   public void onActivityCreated(@Nullable Bundle savedInstanceState) {

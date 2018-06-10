@@ -9,19 +9,24 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import fr.ec.producthunt.R;
+import fr.ec.producthunt.data.model.Collection;
 import fr.ec.producthunt.data.model.Post;
 import fr.ec.producthunt.ui.detail.DetailActivity;
 import fr.ec.producthunt.ui.detail.DetailPostFragment;
 
-public class MainActivity extends AppCompatActivity implements PostsFragments.Callback {
-
+public class MainActivity extends AppCompatActivity implements PostsFragments.Callback, CollectionsFragments.Callback, PostsFragmentsFromCollections.Callback {
+  public static final String POST_FROM_COLLECTION_KEY = "POST_FROM_COLLECTION_KEY";
   private boolean towPane;
   private DrawerLayout mDrawerLayout;
+
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -80,5 +85,17 @@ public class MainActivity extends AppCompatActivity implements PostsFragments.Ca
 
       startActivity(intent);
     }
+  }
+
+  @Override
+  public void  onClickCollection(String collectionString) {
+    FragmentManager fm = getSupportFragmentManager();
+    fm.beginTransaction().replace(R.id.content_frame, PostsFragmentsFromCollections.newInstance(collectionString)).commit();
+  }
+
+
+  @Override
+  public void onClickPostFromCollection(Post post) {
+
   }
 }
