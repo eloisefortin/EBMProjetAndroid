@@ -22,8 +22,9 @@ import static android.content.ContentValues.TAG;
 public class PostAdapter extends BaseAdapter {
 
     private List<Post> dataSource = Collections.emptyList();
-
+    private Boolean firstPost;
     public PostAdapter() {
+        firstPost = true;
     }
 
     @Override
@@ -51,7 +52,7 @@ public class PostAdapter extends BaseAdapter {
 
         Log.d(TAG, "getView: position : " + position);
 
-        if (position == 0) {
+        if (position == 0 && firstPost) {
             convertView = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_big, parent, false);
 
@@ -59,18 +60,20 @@ public class PostAdapter extends BaseAdapter {
             viewHolderBig.title = convertView.findViewById(R.id.title);
             viewHolderBig.subTitle = convertView.findViewById(R.id.sub_title);
             viewHolderBig.postImage = convertView.findViewById(R.id.img_product);
+            viewHolderBig.nbComments = convertView.findViewById(R.id.comments);
 
             convertView.setTag(viewHolderBig);
 
 
             viewHolderBig.title.setText(post.getTitle());
             viewHolderBig.subTitle.setText(post.getSubTitle());
-
+            viewHolderBig.nbComments.setText(post.getNbComments()+" commentaires");
             Picasso.with(parent.getContext())
                     .load(post.getImageUrl())
                     .centerCrop()
                     .fit()
                     .into(viewHolderBig.postImage);
+            firstPost=false;
         } else {
             //set viewHolderSmall
             if (convertView == null || position == 1) {
@@ -81,7 +84,7 @@ public class PostAdapter extends BaseAdapter {
                 viewHolderSmall.title = convertView.findViewById(R.id.title);
                 viewHolderSmall.subTitle = convertView.findViewById(R.id.sub_title);
                 viewHolderSmall.postImage = convertView.findViewById(R.id.img_product);
-
+                viewHolderSmall.nbComments = convertView.findViewById(R.id.comments);
                 convertView.setTag(viewHolderSmall);
             } else {
 
@@ -89,7 +92,7 @@ public class PostAdapter extends BaseAdapter {
             }
             viewHolderSmall.title.setText(post.getTitle());
             viewHolderSmall.subTitle.setText(post.getSubTitle());
-
+            viewHolderSmall.nbComments.setText(post.getNbComments()+" commentaires");
             Picasso.with(parent.getContext())
                     .load(post.getImageUrl())
                     .centerCrop()
@@ -112,5 +115,6 @@ public class PostAdapter extends BaseAdapter {
         TextView title;
         TextView subTitle;
         ImageView postImage;
+        TextView nbComments;
     }
 }

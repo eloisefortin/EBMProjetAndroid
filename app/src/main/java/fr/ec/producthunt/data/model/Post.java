@@ -1,13 +1,28 @@
 package fr.ec.producthunt.data.model;
 
 import android.content.ContentValues;
+import android.util.Log;
+
 import fr.ec.producthunt.data.database.DataBaseContract;
+import static android.content.ContentValues.TAG;
 
 public class Post {
   private String title;
   private String subTitle;
   private String imageUrl;
   private String postUrl;
+
+  public String getNbComments() {
+    Log.d(TAG, "nb comments : "+nbComments);
+    return nbComments;
+  }
+
+  public void setNbComments(String nbComments) {
+    this.nbComments = nbComments;
+  }
+
+  private String nbComments;
+
   private long id;
 
   public String getTitle() {
@@ -58,6 +73,7 @@ public class Post {
     contentValues.put(DataBaseContract.PostTable.SUBTITLE_COLUMN, subTitle);
     contentValues.put(DataBaseContract.PostTable.IMAGE_URL_COLUMN, imageUrl);
     contentValues.put(DataBaseContract.PostTable.POST_URL_COLUMN, postUrl);
+    contentValues.put(DataBaseContract.PostTable.NB_COMMENTS_COLUMN, nbComments);
     return contentValues;
   }
 

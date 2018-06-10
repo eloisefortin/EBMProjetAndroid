@@ -1,5 +1,7 @@
 <resources>
-  <string name="app_name">ProductHunt</string>
-  <string name="menu_refresh_title">Actualiser</string>
-  <string name="emplty_list_msg">Veuillez actualiser</string>
+    <string name="app_name">ProductHunt</string>
+    <string name="menu_refresh_title">Actualiser</string>
+    <string name="emplty_list_msg">Veuillez actualiser</string>
+    <string name="title_activity_comments">CommentsActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>

@@ -27,11 +27,13 @@ import fr.ec.producthunt.R;
 import fr.ec.producthunt.data.DataProvider;
 import fr.ec.producthunt.data.SyncService;
 import fr.ec.producthunt.data.model.Post;
+import fr.ec.producthunt.ui.comments.CommentsActivity;
 
 import static android.content.ContentValues.TAG;
 
 public class PostsFragments extends Fragment {
-
+  public static final String POST_ID = "POST_ID";
+  public static  final String POST_TITLE ="POST_TITLE";
   private static final int PROGRESS_CHILD = 1;
   private static final int LIST_CHILD = 0;
 
@@ -80,6 +82,22 @@ public class PostsFragments extends Fragment {
         Post post = (Post) parent.getAdapter().getItem(position);
         callback.onClickPost(post);
 
+      }
+    });
+
+    listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+      @Override
+      public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long l) {
+        Log.d(TAG,"longclick");
+
+        Intent intent = new Intent(getActivity(), CommentsActivity.class);
+
+        Post post = (Post) parent.getAdapter().getItem(position);
+
+        intent.putExtra(POST_ID,post.getId());
+        intent.putExtra(POST_TITLE,post.getTitle());
+        startActivity(intent);
+        return true;
       }
     });
     viewAnimator = rootView.findViewById(R.id.main_view_animator);

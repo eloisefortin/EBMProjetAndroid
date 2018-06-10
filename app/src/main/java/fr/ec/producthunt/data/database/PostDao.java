@@ -41,7 +41,7 @@ public class PostDao {
         post.setSubTitle(cursor.getString(2));
         post.setImageUrl(cursor.getString(3));
         post.setPostUrl(cursor.getString(4));
-
+        post.setNbComments(cursor.getString(5));
         posts.add(post);
 
 

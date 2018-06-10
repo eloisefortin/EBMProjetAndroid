@@ -70,7 +70,7 @@ public class JsonPostParser {
     post.setTitle(postJson.getString("name"));
     post.setSubTitle(postJson.getString("tagline"));
     post.setPostUrl(postJson.getString("redirect_url"));
-
+    post.setNbComments(postJson.getString("comments_count"));
     post.setImageUrl(postJson.getJSONObject("thumbnail").getString("image_url"));
 
 
